@@ -1,0 +1,2 @@
+BREATH_TAG = "breath"
+BREATH_DURATION = 1
