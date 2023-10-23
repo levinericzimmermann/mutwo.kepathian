@@ -42,7 +42,7 @@ class ContentToDocument(core_converters.abc.Converter):
                 f.write(r)
             subprocess.call(["sile", silepath, "-o", path])
             if cleanup:
-                os.remove(path)
+                os.remove(silepath)
         return r
 
 
