@@ -1,3 +1,5 @@
+"""Low-level converters to create notation with SILE backend"""
+
 import functools
 import operator
 import os
