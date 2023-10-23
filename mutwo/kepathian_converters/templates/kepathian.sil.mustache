@@ -1,0 +1,21 @@
+{{! Change delimiter style to avoid confusion with SILE syntax }}
+{{=<< >>=}}
+\begin{center}
+\kepathian{
+    % Set formatting (minimal width per cell)
+    \tr{
+        <<#columns>>
+        \td{\glue[width=<<size>>cm]}
+        <</columns>>
+    }
+    
+    % Insert the actual data
+    <<#rows>>
+    \tr{
+        <<#items>>
+        \td{<<item>>}
+        <</items>>
+    }
+    <</rows>>
+}
+\end{center}
