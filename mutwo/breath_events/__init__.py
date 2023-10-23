@@ -1,6 +1,12 @@
+import typing
+
 from mutwo import breath_parameters
 from mutwo import core_events
 from mutwo import music_events
+
+
+BreathValue: typing.TypeAlias = core_events.SimpleEvent | music_events.NoteLike
+BreathCell: typing.TypeAlias = core_events.TaggedSequentialEvent[BreathValue]
 
 
 class BreathTime(
@@ -8,9 +14,7 @@ class BreathTime(
     core_events.SimultaneousEvent[
         # Each of these singers/whistlers/instruments plays a sequence of
         # notes or rests.
-        core_events.TaggedSequentialEvent[
-            core_events.SimpleEvent | music_events.NoteLike
-        ]
+        BreathCell
     ]
 ):
     def __init__(
