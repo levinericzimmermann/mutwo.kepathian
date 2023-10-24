@@ -6,7 +6,10 @@ from mutwo import music_events
 
 
 BreathValue: typing.TypeAlias = core_events.SimpleEvent | music_events.NoteLike
+"""One (of potentially many) event(s) that is played during a breath"""
+
 BreathCell: typing.TypeAlias = core_events.TaggedSequentialEvent[BreathValue]
+"""Everything that is played during one breath"""
 
 
 class BreathTime(
