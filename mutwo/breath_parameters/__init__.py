@@ -1,5 +1,7 @@
 import enum
 
+from mutwo import core_parameters
+
 
 class BreathDirection(enum.Enum):
     INHALE = 0
@@ -35,3 +37,13 @@ class Breath(object):
                 return "↓"
             case _:
                 raise NotImplementedError(key)
+
+    @property
+    def duration(self) -> core_parameters.abc.Duration:
+        match self.speed:
+            case BreathSpeed.SLOW:
+                return core_parameters.DirectDuration(8)
+            case BreathSpeed.FAST:
+                return core_parameters.DirectDuration(4)
+            case _:
+                raise NotImplementedError(self.speed)
