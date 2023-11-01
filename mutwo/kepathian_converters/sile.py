@@ -118,7 +118,7 @@ class KTableToSileStr(core_converters.abc.Converter):
             t,
             {
                 "size": cell_width,
-                "columns": tuple(range(column_count)),
+                "columns": tuple(range(column_count + 1)),
                 "rows": mustache_data,
             },
         )
