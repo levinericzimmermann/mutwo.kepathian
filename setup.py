@@ -31,7 +31,9 @@ setuptools.setup(
     install_requires=[
         "mutwo.core>=1.3.0, <2.0.0",
         "mutwo.music>=0.24.0, <1.0.0",
+        "chevron>=0.13.1, <1.0.0",
     ],
+    package_data={"mutwo.kepathian_converters": ["**/*.mustache", "**/*.lua"]},
     include_package_data=True,
     extras_require=extras_require,
     python_requires=">=3.10, <4",
