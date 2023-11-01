@@ -71,7 +71,7 @@ class BreathSequenceToKTable(core_converters.abc.Converter):
     def convert(
         self, breath_sequence: breath_events.BreathSequence
     ) -> kepathian_events.KTable:
-        r = breath_sequence_to_row_name_tuple(breath_sequence)
+        r = breath_converters.breath_sequence_to_row_name_tuple(breath_sequence)
         ktable = core_events.SimultaneousEvent(
             [
                 core_events.TaggedSequentialEvent(
@@ -88,16 +88,3 @@ class BreathSequenceToKTable(core_converters.abc.Converter):
             for e in b:
                 ktable[e.tag].append(self.bcell2kcell(e))
         return ktable
-
-
-def breath_sequence_to_row_name_tuple(
-    breath_sequence: breath_events.BreathSequence,
-) -> tuple[str, ...]:
-    def b2r(b: breath_events.BreathTime):
-        return tuple(e.tag for e in b)
-
-    b0 = breath_sequence[0]
-    r = b2r(b0)
-    for b in breath_sequence[1:]:
-        assert b2r(b) == r, "Missing parts"
-    return r
