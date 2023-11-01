@@ -100,9 +100,9 @@ class KTableToSileStr(core_converters.abc.Converter):
     def convert(self, ktable_to_convert: kepathian_events.KTable) -> str:
         width = cell_width = (
             self._width
-            or kepathian_converters.constants.PAPERSIZE_TO_WIDTH[
+            or (kepathian_converters.constants.PAPERSIZE_TO_WIDTH[
                 kepathian_converters.configurations.DEFAULT_PAPERSIZE
-            ]
+            ] - kepathian_converters.configurations.DEFAULT_MARGIN_SIZE)
         )
         if column_count := ktable_to_column_count(ktable_to_convert):
             cell_width = (width) / column_count
