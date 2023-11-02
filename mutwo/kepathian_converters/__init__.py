@@ -1,3 +1,6 @@
+from . import patches
+del patches
+
 from . import constants
 from . import configurations
 
