@@ -12,7 +12,7 @@ in
   buildPythonPackage rec {
     name = "mutwo.kepathian";
     src = ./.;
-    nativeCheckInputs = [ pytest ];
+    nativeCheckInputs = [ sile pytest ];
     checkInputs = [ sile pytest ];
     propagatedBuildInputs = [ 
       # py dependencies
